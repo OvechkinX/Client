@@ -1,0 +1,17 @@
+.left {
+    height:94vh;
+    width:250px;
+    float:left;
+    }
+    
+    .right {
+    width:calc(100% - 250px);
+    height:94vh;
+    background:wheat;
+    float:right;   
+    text-align: center;
+    overflow: auto;
+    background-color: #1e1e1e;
+    color: white;
+    
+    }

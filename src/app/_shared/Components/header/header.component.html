@@ -1,0 +1,13 @@
+<nav class="navbar navbar-expand-lg navbar-dark " style="background-color: #1a1a1a; border-bottom: 1px solid rgba(255,255,255,.1); color: white; font-weight: bold;">
+    <a class="navbar-brand ml-5" style="font-size: 25px;">My App</a>
+    <div class="ml-auto mr-3" style="margin-top: 8px; padding: 0;">
+        <div class="mr-3" style="float: left; color: white; font-size: 20px;">
+            <p>Witaj {{this.name}}</p>
+        </div>
+        <div style="float: right;">
+            <button type="button" class="btn btn-primary" (click)="logout()">
+            <i class="fas fa-sign-out-alt"></i>
+            </button>
+        </div>        
+    </div>   
+</nav>

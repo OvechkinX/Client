@@ -1,0 +1,55 @@
+table {
+    width: 100%;
+    background-color: #353942;
+    color: white;
+
+}
+
+td, th, tr {
+    color: white;
+    text-align: left;
+    font-size: 17px;
+}
+
+.mat-header-row {
+    background-color: #5454c5;
+}
+
+.mat-paginator {
+    background-color: #5454c5;
+    color: white;
+}
+
+th.mat-sort-header-sorted {
+    color: black;
+}
+
+.mat-form-field {
+    font-size: 14px;
+    width: 100%;
+}
+
+.dataTime {
+    font-size: 14px;
+    color: lightslategray;
+}
+
+.mat-elevation-z8 {
+    -webkit-box-shadow: 0 0 10px rgb(0,0,0);
+    -moz-box-shadow: 0 0 10px rgb(0,0,0);
+}
+
+agm-map {
+    height: 45vh;
+    width: 100%;
+}
+
+#container {
+ overflow: visible;
+}
+
+.mat-dialog-container {
+    box-shadow: 0 11px 15px -7px rgba(0,0,0,.2), 0 24px 38px 3px rgba(0,0,0,.14), 0 9px 46px 8px rgba(0,0,0,.12);
+    background: #1c1c1c;
+    color: rgba(0,0,0,.87);
+}

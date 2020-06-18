@@ -1,0 +1,74 @@
+   <div class="container">
+        <form #registerForm="ngForm" (ngSubmit)="register()">
+            <div class="md-form">
+                  <h3>Rejestracja</h3>
+               
+            </div>
+        
+        
+        
+            <div class="input-group form-group">
+                    <div class="input-group-prepend">
+                        <span class="input-group-text"><i class="fas fa-user"></i></span>
+                    </div>
+                    <input  type="text" class="form-control" placeholder="Nazwa Użytkownika" name="username" 
+                    [(ngModel)] = "model.username" [formControl] = "username">
+        
+          
+        
+            </div>
+            <div class="input-group form-group">
+                    <div class="input-group-prepend">
+                        <span class="input-group-text"><i class="fas fa-user-circle"></i></span>
+                    </div>
+                    <input  type="text" class="form-control" placeholder="Imię" name="firstname"  [(ngModel)] = "model.firstName" [formControl] = "firstName">
+                    
+                   
+            </div>
+        
+                <div class="input-group form-group">
+                        <div class="input-group-prepend">
+                            <span class="input-group-text"><i class="fas fa-user-circle"></i></span>
+                        </div>
+                        <input type="text" class="form-control" placeholder="Nazwisko" name="lastname"  [(ngModel)] = "model.lastName" [formControl] = "lastName">
+                        
+                 </div>
+        
+                <div class="input-group form-group">
+                        <div class="input-group-prepend">
+                            <span class="input-group-text"><i class="fas fa-at"></i></span>
+                        </div>
+                        <input type="email" class="form-control" placeholder="Email" name="email"  [(ngModel)] = "model.email" [formControl] = "email">
+                        
+                        
+                </div>
+        
+            <div class="input-group form-group">
+                <div class="input-group-prepend">
+                    <span class="input-group-text"><i class="fas fa-key"></i></span>
+                </div>
+                <input  type="password" class="form-control" placeholder="Hasło" name="password"  [(ngModel)] = "model.password" [formControl] = "password">
+                       
+            </div>
+        
+            <div class="input-group mb-3">
+                    <div class="input-group-prepend">
+                      <label style="background-color: #E8ECEF; font-weight: bold; padding-left: 4px; padding-right: 4px;" class="input-group-text" for="inputGroupSelect01">Rola</label>
+                    </div>
+                    <select  class="custom-select" id="inputGroupSelect01"  [(ngModel)] = "model.role" name="role" [formControl] = "role">
+                      <option value="Admin">Spedytor</option>
+                      <option value="Transport">Przewoźnik</option>
+                      <option value="Loader">Zleceniodawca</option>
+                    </select>
+                  </div>
+        
+           
+            <div class="form-group mt-5" id="btnRegister">
+                <input type="submit" value="Zarejestruj" class="btn login_btn btn-primary">
+            </div>
+            <div class="d-flex justify-content-center links" id="haveAccount">
+                    Masz już konto?<a routerLink = "../signin">&nbsp; Zaloguj się</a>
+            </div>
+        
+        </form>
+        </div>

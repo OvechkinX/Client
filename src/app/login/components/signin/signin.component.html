@@ -1,0 +1,39 @@
+<div class="container">
+	<div class="d-flex justify-content-center h-100">
+		<div class="card">
+			<div class="card-header">
+				<h3>Logowanie</h3>				
+			</div>
+			<div class="card-body">
+				<form #loginForm="ngForm" (ngSubmit)="login()">
+					<div class="input-group form-group">
+						<div class="input-group-prepend">
+							<span class="input-group-text" style="background-color: #E8ECEF;"><i class="fas fa-user"></i></span>
+						</div>
+						<input pattern="[A-Za-z]" type="text" class="form-control" placeholder="Nazwa Użytkownika" [(ngModel)]="model.username" name="username" [formControl]="username">
+						
+					</div>
+					<div class="input-group form-group">
+						<div class="input-group-prepend">
+							<span class="input-group-text" style="background-color: #E8ECEF;"><i class="fas fa-key"></i></span>
+						</div>
+						<input type="password" class="form-control" placeholder="Hasło" [(ngModel)]="model.password" name="password" [formControl]="password">
+					</div>
+
+					<div class="form-group mt-5">
+						<input type="submit" value="Zaloguj" class="btn  login_btn btn-primary">
+					</div>
+				</form>
+			</div>
+			<div class="card-footer">
+				
+				<div class="d-flex justify-content-center links">
+					Nie masz konta? <a routerLink = "../register">Utwórz</a>
+				</div>
+				<div class="d-flex justify-content-center">
+					<br>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>

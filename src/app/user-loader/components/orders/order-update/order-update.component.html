@@ -1,0 +1,103 @@
+<h1 mat-dialog-title>Edytuj Zlecenie</h1>
+
+<div *ngIf="this.data.loads[this.data.index].status === 'W Trakcie'" class="container mt-5">
+    <h2>Zlecenie jest w trakcie realizacji</h2>
+</div>
+
+<div *ngIf="this.data.loads[this.data.index].status === 'Zrealizowano'" class="container mt-5">
+    <h2>Zlecenie zostało już zrealizowane</h2>
+</div>
+
+<div *ngIf="this.data.loads[this.data.index].status === 'Oczekuje'" class="container mt-5" style=" font-size: 23px;" id="form">
+    <form [formGroup]="editOrder">
+        <div class="form-row">
+            <div class="form-group col-md-8">
+                <label for="inputAddress">Adres załadunku</label>
+                <input formControlName="loadingAddress" type="text" class="form-control" id="inputAddress" placeholder="Warszawa, Bema 1"
+                autocorrect="off" autocapitalize="off" spellcheck="off" #search [formControl]="searchControl" [ngClass]="{ 'is-invalid': submitted && f.loadingAddress.errors }">
+                <div *ngIf="submitted && f.loadingAddress.errors" class="invalid-feedback">
+                    <div *ngIf="f.loadingAddress.errors.required">Adres jest wymagany</div>
+                </div>  
+            </div>
+            <div class="form-group col-md-2">
+                <label for="example-date-input">Data</label>
+                <input formControlName="loadingDate" class="form-control" type="date" value="2011-08-19" id="example-date-input" [ngClass]="{ 'is-invalid': submitted && f.loadingDate.errors }">
+                <div *ngIf="submitted && f.loadingDate.errors" class="invalid-feedback">
+                    <div *ngIf="f.loadingDate.errors.required">Data jest wymagana</div>
+                </div>  
+            </div>
+            <div class="form-group col-md-2">
+                <label for="example-time-input">Czas</label>
+                <input formControlName="loadingTime" class="form-control" type="time" value="13:45:00" id="example-time-input" [ngClass]="{ 'is-invalid': submitted && f.loadingTime.errors }">
+                <div *ngIf="submitted && f.loadingTime.errors" class="invalid-feedback">
+                    <div *ngIf="f.loadingTime.errors.required">Czas jest wymagany</div>
+                </div>  
+            </div>
+        </div>
+
+        <div class="form-row">
+            <div class="form-group col-md-8">
+                <label for="inputAddress">Adres rozładunku</label>
+                <input formControlName="unloadingAddress" type="text" class="form-control" id="inputAddress2" placeholder="Kraków, Legionów 117"
+                autocorrect="off" autocapitalize="off" spellcheck="off" #search2 [formControl]="searchControl2" [ngClass]="{ 'is-invalid': submitted && f.unloadingAddress.errors }">
+                <div *ngIf="submitted && f.unloadingAddress.errors" class="invalid-feedback">
+                    <div *ngIf="f.unloadingAddress.errors.required">Adres jest wymagany</div>
+                </div>  
+            </div>
+            <div class="form-group col-md-2">
+                <label for="example-date-input2">Data</label>
+                <input formControlName="unloadingDate" class="form-control" type="date" value="2011-08-19" id="example-date-input2" [ngClass]="{ 'is-invalid': submitted && f.unloadingDate.errors }">
+                <div *ngIf="submitted && f.unloadingDate.errors" class="invalid-feedback">
+                    <div *ngIf="f.unloadingDate.errors.required">Data jest wymagana</div>
+                </div>  
+            </div>
+            <div class="form-group col-md-2">
+                <label for="example-time-input2">Czas</label>
+                <input formControlName="unloadingTime" class="form-control" type="time" value="13:45:00" id="example-time-input2" [ngClass]="{ 'is-invalid': submitted && f.unloadingTime.errors }">
+                <div *ngIf="submitted && f.unloadingTime.errors" class="invalid-feedback">
+                    <div *ngIf="f.unloadingTime.errors.required">Czas jest wymagany</div>
+                </div>  
+            </div>
+        </div>
+        
+        <br>
+        <h1>Informacje o ładunku</h1>
+        <hr>
+        <br>
+
+        <div class="form-row">
+            <div class="form-group col-md-4">
+                <label for="weight">Waga (t)</label>
+                <input formControlName="weight" type="number" class="form-control" id="weight" placeholder="Waga w tonach" [ngClass]="{ 'is-invalid': submitted && f.weight.errors }">
+                <div *ngIf="submitted && f.weight.errors" class="invalid-feedback">
+                    <div *ngIf="f.weight.errors.required">Waga jest wymagana</div>
+                </div>            
+            </div>
+            <div class="form-group col-md-4">
+                <label for="volume">Objętość (m^3)</label>
+                <input formControlName="volume" type="number" class="form-control" id="volume" placeholder="Objętość" [ngClass]="{ 'is-invalid': submitted && f.volume.errors }">
+                <div *ngIf="submitted && f.volume.errors" class="invalid-feedback">
+                    <div *ngIf="f.volume.errors.required">Objętość jest wymagana</div>
+                </div>  
+            </div>
+            <div class="form-group col-md-4">
+                <label for="type">Rodzaj Ładunku</label>
+                <select id="type" class="custom-select" formControlName="type" [ngClass]="{ 'is-invalid': submitted && f.type.errors }">
+                    <option value="uniwersalny">Uniwersalny</option>
+                    <option value="chłodnia">Chłodnia</option>
+                    <option value="wywrotka">Wywrotka</option>
+                    <option value="cysterna">Cysterna</option>
+                </select>
+                <div *ngIf="submitted && f.type.errors" class="invalid-feedback">
+                    <div *ngIf="f.type.errors.required">Rodzaj jest wymagany</div>
+                </div>  
+            </div>
+        </div>
+
+        <div mat-dialog-actions>
+            <button (click)="onNoClick()" class="btn btn-danger mt-2">Anuluj</button>
+            <button (click)="onSubmit()" class="btn btn-primary mt-2 ml-3">Edytuj Pojazd</button>
+        </div>
+      </form>
+      <br>
+</div>

@@ -1,0 +1,17 @@
+.available {
+    background-color: green;
+    padding: 5px;
+    margin: 0;
+    height: 30px;
+    border-radius: 25px;
+    color: white;
+}
+
+.unavailable {
+    background-color: darkorange;
+    padding: 5px;
+    margin: 0;
+    height: 30px;
+    border-radius: 25px;
+    color: white;
+}

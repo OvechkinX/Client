@@ -1,0 +1,87 @@
+<div class="container mt-4" id="form">
+    <form [formGroup]="addCar" (ngSubmit)="onSubmit()">
+
+        <h1>Dane podstawowe</h1>
+        <hr style="background-color: white;">
+        
+        <div class="form-row">
+            <div class="form-group col-md-4">
+                <label for="brand">Marka</label>
+                <input formControlName="brand" type="text" class="form-control" id="brand" placeholder="Mercedes-Benz" [ngClass]="{ 'is-invalid': submitted && f.brand.errors }">
+                <div *ngIf="submitted && f.brand.errors" class="invalid-feedback">
+                    <div *ngIf="f.brand.errors.required">Marka jest wymagana</div>
+                </div>
+            </div>
+            <div class="form-group col-md-4">
+                <label for="model">Model</label>
+                <input formControlName="model" type="text" class="form-control" id="model" placeholder="Atego" [ngClass]="{ 'is-invalid': submitted && f.model.errors }">
+                <div *ngIf="submitted && f.model.errors" class="invalid-feedback">
+                    <div *ngIf="f.model.errors.required">Model jest wymagany</div>
+                </div>
+            </div>
+            <div class="form-group col-md-4">
+                <label for="registration">Numer rejestracyjny</label>
+                <input formControlName="registration" type="text" class="form-control" id="registration" placeholder="ETM 20YL3" [ngClass]="{ 'is-invalid': submitted && f.registration.errors }">
+                <div *ngIf="submitted && f.registration.errors" class="invalid-feedback">
+                    <div *ngIf="f.registration.errors.required">Numer jest wymagany</div>
+                </div>
+            </div>  
+        </div>
+
+        <br>
+        <h1>Parametry</h1>
+        <hr style="background-color: white;">
+
+        <div class="form-row">
+            <div class="form-group col-md-4">
+                <label for="type">Rodzaj Naczepy</label>
+                <select id="type" class="custom-select" formControlName="type" [ngClass]="{ 'is-invalid': submitted && f.type.errors }">
+                    <option value="uniwersalny">Uniwersalny</option>
+                    <option value="chłodnia">Chłodnia</option>
+                    <option value="wywrotka">Wywrotka</option>
+                    <option value="cysterna">Cysterna</option>
+                </select>
+                <div *ngIf="submitted && f.type.errors" class="invalid-feedback">
+                    <div *ngIf="f.type.errors.required">Rodzaj jest wymagany</div>
+                </div>  
+            </div>
+            <div class="form-group col-md-4">
+                <label for="weight">Dopuszczalny ciężar</label>
+                <input formControlName="weight" type="number" class="form-control" id="weight" placeholder="12t" [ngClass]="{ 'is-invalid': submitted && f.weight.errors }">
+                <div *ngIf="submitted && f.weight.errors" class="invalid-feedback">
+                    <div *ngIf="f.weight.errors.required">Ciężar jest wymagany</div>
+                </div>
+            </div>
+            <div class="form-group col-md-4">
+                <label for="volume">Przestrzeń ładunkowa</label>
+                <input formControlName="volume" type="number" class="form-control" id="volume" placeholder="m^3" [ngClass]="{ 'is-invalid': submitted && f.volume.errors }">
+                <div *ngIf="submitted && f.volume.errors" class="invalid-feedback">
+                    <div *ngIf="f.volume.errors.required">Przestrzeń jest wymagana</div>
+                </div>
+            </div>  
+        </div>
+
+        <br>
+        <h1>Szczegóły</h1>
+        <hr style="background-color: white;">
+
+        <div class="form-row">
+            <div class="form-group col-md-6">
+                <label for="dateFrom">Dostępny od</label>
+                <input formControlName="dateFrom" class="form-control" type="date" value="2011-08-19" id="dateFrom" [ngClass]="{ 'is-invalid': submitted && f.dateFrom.errors }">
+                <div *ngIf="submitted && f.dateFrom.errors" class="invalid-feedback">
+                    <div *ngIf="f.dateFrom.errors.required">Data jest wymagana</div>
+                </div>
+            </div>
+            <div class="form-group col-md-6">
+                <label for="dateTo">Dostępny do</label>
+                <input formControlName="dateTo" class="form-control" type="date" value="2011-08-19" id="dateTo" [ngClass]="{ 'is-invalid': submitted && f.dateTo.errors }">
+                <div *ngIf="submitted && f.dateTo.errors" class="invalid-feedback">
+                    <div *ngIf="f.dateTo.errors.required">Data jest wymagana</div>
+                </div>
+            </div>
+        </div>
+        
+        <button type="submit" class="btn btn-primary mt-4">Dodaj Pojazd</button>
+    </form>
+</div>

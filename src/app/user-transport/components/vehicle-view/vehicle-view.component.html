@@ -1,0 +1,32 @@
+<div class="container-fluid mt-3" id="container">
+
+    <mat-grid-list cols="3" rowHeight="680px">
+        <ng-container *ngFor="let item of vehicles; let i=index">
+            <mat-grid-tile>
+                <mat-card class="example-card">
+                    <mat-card-header>
+                      <div mat-card-avatar class="example-header-image"></div>
+                      <mat-card-title>{{item.brand}}</mat-card-title>
+                      <mat-card-subtitle>{{item.model}}</mat-card-subtitle>
+                    </mat-card-header>
+                    <img mat-card-image [src]="item.img" style="height: 300px;">
+                    <mat-card-content style="font-size: 16px;">
+                      <p>Nr rejestracyjny: {{item.registration}}</p>
+                      <p>Rodzaj Naczepy: {{item.type}}</p>
+                      <p>Maksymalna waga ładunku: {{item.weight}}</p>
+                      <p>Maksymalna objętość ładunku: {{item.volume}}m<sup>3</sup></p>
+                      <div [ngClass]="{ 'available': item.status === 'Dostępny', 'unavailable': item.status === 'Niedostępny' }">
+                          <p>{{item.status}}</p>
+                      </div>
+                    </mat-card-content>
+                    <mat-card-actions>
+                        <button (click)="openDialog(i)" mat-raised-button color="primary">Edytuj</button>
+                        <button [disabled]="item.status === 'Niedostępny'" (click)="deleteVehicle(i)" mat-raised-button color="warn">Usuń pojazd</button>
+                    </mat-card-actions>
+                </mat-card>
+            </mat-grid-tile>
+        </ng-container>
+    </mat-grid-list>
+    
+    <br>
+</div>

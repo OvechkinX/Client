@@ -1,0 +1,38 @@
+  <mat-accordion>
+    <mat-expansion-panel *ngFor="let element of vehicles; let i=index" class="mb-1">
+      <mat-expansion-panel-header style="background-color: #f7f8f7;">
+        <mat-panel-title style="font-weight: bolder; width: 100px;">
+          {{element.brand}} &nbsp; {{element.model}}
+        </mat-panel-title>
+        <mat-panel-description>
+           <p style="font-weight: bold;"> Dostępny od: </p> &nbsp; <span [ngClass]="{ 'available': element.dateAvailable === true, 'unavailable': element.dateAvailable === false }"> {{element.dateFrom}} </span>
+          &nbsp; &nbsp; &nbsp;
+         <p style="font-weight: bold;"> Dostępny do: </p> &nbsp; <span [ngClass]="{ 'available': element.dateAvailable === true, 'unavailable': element.dateAvailable === false }"> {{element.dateTo}} </span>
+         &nbsp;&nbsp;&nbsp;&nbsp; &nbsp; 
+         <p style="font-weight: bold;">Typ: </p> &nbsp; <span [ngClass]="{ 'available': element.typeAvailable === true, 'unavailable': element.typeAvailable === false }"> {{element.type}} </span>
+         
+         
+        </mat-panel-description>
+      </mat-expansion-panel-header>
+
+      <div class="container-fluid">
+        <div class="row">
+          <div class="col-md-3 mt-3" style="text-align: center;">
+            <p style="font-weight: bold;">Maskymalna Waga: </p> &nbsp; <span [ngClass]="{ 'available': element.weightAvailable === true, 'unavailable': element.weightAvailable === false }"> {{element.weight}} </span>
+          </div>
+          <div class="col-md-3 mt-3" style="text-align: center;">
+            <p style="font-weight: bold;">Maksymalna Objętość: </p> &nbsp; <span [ngClass]="{ 'available': element.volumeAvailable === true, 'unavailable': element.volumeAvailable === false }"> {{element.volume}} </span>
+          </div>
+          <div class="col-md-6 mt-4" style="text-align: center;">
+            <button (click)="addOrder(i)" mat-raised-button color="primary">Utwórz Zlecenie</button>
+          </div>
+        </div>
+      </div>
+
+      
+     
+      
+
+      </mat-expansion-panel>
+
+  </mat-accordion>
